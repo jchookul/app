@@ -1,5 +1,32 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, Worldll</Label>
+	<Window id="win_main" titleControl="false" navBarHidden="true">
+		<View id="view_nav">
+			<Label id="xhr_status" class="lbl">XHR Status</Label>
+			<Label id="section_cur" class="section_nav">Section Name</Label>
+			<View id="view_btn">
+				<Button id="btn_menu" class="btn_20" onClick="toggle_menu">Menu</Button>
+				<Button id="btn_prev_section" class="btn_20" onClick="news_prev_section">Prev</Button>
+				<Button id="btn_next_section" class="btn_20" onClick="news_next_section">Next</Button>
+				<Button id="btn_open_win" class="btn_20" onClick="open_win">Wins</Button>
+			</View>
+			
+		</View>
+		<View id="view_dsp">
+			<Label id="lbl_x1">X1</Label>
+			<Label id="lbl_y1">y1</Label>
+			<Label id="lbl_x2">X2</Label>
+			<Label id="lbl_y2">y2</Label>
+		</View>
+		<View id="view_swipe">
+			<Label id="lbl_swipe">Test Swipe</Label>
+		</View>
+		<View id="view_swipe_d">
+			<Label id="lbl_swipe_d">Test Swipe Obj</Label>
+		</View>
+		<View id="view_main">
+			<TableView id="main_menu" editable="true"></TableView>
+			<TableView id="news_data"></TableView>
+		</View>
+
 	</Window>
 </Alloy>
