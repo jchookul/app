@@ -8,7 +8,7 @@
 	top: "20",
 	backgroundColor:"#000FFF",
 	layout:"vertical",
-	height: "200",
+	height: "220",
 }
 
 "#view_story_desc": {
