@@ -153,7 +153,7 @@ $.news_data.addEventListener('click',function(e) {
 	
 	var r_ind = e.row.r_ind;
 	var r_title = e.row.children[0].text;
-	alert('id5:'+r_ind+', t:'+r_title);
+	alert('id6:'+r_ind+', t:'+r_title);
 });
 
 function open_win(e) {
