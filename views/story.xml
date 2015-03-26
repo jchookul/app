@@ -1,0 +1,15 @@
+<Alloy>
+	<Window id="win_story" titleControl="false" navBarHidden="true">
+		<View id="view_story_img">
+			<Button id="btn_story_close" onClick="story_close">Close</Button>
+			<Button id="btn_create_file" onClick="create_file">Create_file</Button>
+			<Button id="btn_read_file" onClick="read_file">read_file</Button>
+			<Label id="story_img1">Story Img1</Label>
+			<Label id="story_img2">Story Img2</Label>
+		</View>
+		<View id="view_story_desc">
+			<Label id="story_desc1">Story Desc1</Label>
+			<Label id="story_desc2">Story Desc2222222222</Label>
+		</View>
+	</Window>
+</Alloy>
