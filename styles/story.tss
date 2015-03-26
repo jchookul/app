@@ -1,0 +1,23 @@
+
+"#win_story": {
+	backgroundColor:"#FFF0000",
+	layout:"vertical",
+}
+
+"#view_story_img": {
+	top: "20",
+	backgroundColor:"#000FFF",
+	layout:"vertical",
+	height: "200",
+}
+
+"#view_story_desc": {
+	top: "30",
+	backgroundColor:"#FF00FF",
+	layout:"vertical",
+	height: "150",
+}
+
+"#tbv": {
+	width:"100%",
+}
