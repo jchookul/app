@@ -12,7 +12,7 @@
 
 var ga_inst = require("analytics.google");
 ga_inst.dispatchInterval = 10;
-Alloy.Globals.ga_track = ga_inst.getTracker("UA-60623337-9");
+Alloy.Globals.ga_track = ga_inst.getTracker("UA-60623337-12");
 
 
 

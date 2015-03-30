@@ -144,13 +144,14 @@ $.news_data.addEventListener('click',function(e) {
 	
 
 	// track an event
+	/*
 	Alloy.Globals.ga_track.trackEvent({
   		category: "jc2_cat",   // required
   		action: "jc2_clcstory", // required
   		label: r_title,
   		value: 1
 	});	
-	
+	*/
 	
 	var args = {};
 	args.story_url = r_link;
@@ -289,16 +290,17 @@ function render_news_section(e) {
 	
 	
 	//begin_ga
-	var ga_eid = "jc2id_"+d_json.title;
-	var ga_etype = "jc2typ_section";
-	var ga_section = "jc2sect_"+d_json.title;
-	var ga_title = "jc2tit_"+d_json.title;
+	var ga_eid = "jc3id_"+d_json.title;
+	var ga_etype = "jc3typ_section";
+	var ga_esection = "jc3sect_"+d_json.title;
+	var ga_title = "jc3tit_"+d_json.title;
 
 	Alloy.Globals.ga_track.trackScreen({
   		screenName: ga_title,   
   		customDimension: {
   			"1": ga_eid,
   			"2": ga_etype,
+  			"3": ga_esection,
   		}
 	});	
 	

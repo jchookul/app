@@ -13,14 +13,14 @@ get_story(e_data);
 function get_story(e) {
 	var url = e.data.url;
 	
-	alert("Loading Story");
+	alert("Loading Story v3");
 	var xhr_url = url;
 	var xhr_method = "GET";
 	var xhr_data = {};
 	var xhr_fn_callback = render_story;
 	var xhr_fn_args = {};//{"eid":"test_eid"};
 	var xhr_time_out = 2000;
-	var xhr_error_msg = "can not load main menu";
+	var xhr_error_msg = "can not load story";
 	
 	var xhr_data = {"data":{"xhr_url":xhr_url,"xhr_method":xhr_method,"xhr_data":xhr_data,"xhr_fn_callback":xhr_fn_callback,"xhr_fn_args":xhr_fn_args,"xhr_time_out":xhr_time_out,"xhr_error_msg":xhr_error_msg}};
 	get_xhr(xhr_data);
@@ -33,10 +33,10 @@ function render_story(e) {
 	
 	var d_json = JSON.parse(xhr_response);
 	
-	var ga_eid = "jc2id_"+d_json.id;
-	var ga_etype = "jc2typ_story";
-	var ga_section = "jc2sect_"+d_json.category[0];
-	var ga_title = "jc2tit_"+d_json.title;
+	var ga_eid = "jc3id_"+d_json.id;
+	var ga_etype = "jc3typ_story";
+	var ga_esection = "jc3sect_"+d_json.category[0];
+	var ga_title = "jc3tit_"+d_json.title;
 	
 
 	Alloy.Globals.ga_track.trackScreen({
@@ -44,10 +44,11 @@ function render_story(e) {
   		customDimension: {
   			"1": ga_eid,
   			"2": ga_etype,
+  			"3": ga_esection,
   		}
 	});	
 	
-	alert(ga_eid+","+ga_etype+","+ga_section+","+ga_title);
+	alert(ga_eid+","+ga_etype+","+ga_esection+","+ga_title);
 	
 }
 
@@ -55,9 +56,9 @@ function render_story(e) {
 function clk_img1(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc2_img",   // required
-  		action: "jc2_vimg1", // required
-  		label: "jc2_img1_name",
+  		category: "jc3_img",   // required
+  		action: "jc3_vimg1", // required
+  		label: "jc3_img1_name",
   		value: 1
 	});
 	
@@ -67,9 +68,9 @@ function clk_img1(e) {
 function clk_img2(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc2_img",   // required
-  		action: "jc2_vimg2", // required
-  		label: "jc2_img2_name",
+  		category: "jc3_img",   // required
+  		action: "jc3_vimg2", // required
+  		label: "jc3_img2_name",
   		value: 1
 	});
 	
@@ -79,17 +80,12 @@ function clk_img2(e) {
 function clk_fb(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc2_social",   // required
-  		action: "jc2_fb", // required
-  		label: "jc2_stitle",
+  		category: "jc3_social",   // required
+  		action: "jc3_fb", // required
+  		label: "jc3_stitle",
   		value: 1
 	});
 	
-	Alloy.Globals.ga_track.trackSocial({
-  		network: "facebook",   // required
-  		action: "share", // required
-  		target: "jc2_surl"
-	});
 	
 	alert("clk_fb");	
 }
@@ -97,17 +93,12 @@ function clk_fb(e) {
 function clk_tt(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc2_social",   // required
-  		action: "jc2_tt", // required
-  		label: "jc2_stitle",
+  		category: "jc3_social",   // required
+  		action: "jc3_tt", // required
+  		label: "jc3_stitle",
   		value: 1
 	});
 	
-	Alloy.Globals.ga_track.trackSocial({
-  		network: "twitter",   // required
-  		action: "share", // required
-  		target: "jc2_surl"
-	});
 	
 	alert("clk_tt");	
 }
