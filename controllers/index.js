@@ -10,6 +10,46 @@ get_main_menu();
 
 $.main_menu.setVisible(false);
 
+var Cloud = require('ti.cloud');
+var CloudPush = require('ti.cloudpush');
+ 
+// Initialize the module
+CloudPush.retrieveDeviceToken({
+    success: deviceTokenSuccess,
+    error: deviceTokenError
+});
+// Enable push notifications for this device
+// Save the device token for subsequent API calls
+function deviceTokenSuccess(e) {
+    Alloy.Globals.device_token = e.deviceToken;
+    subscribe_news();
+}
+function deviceTokenError(e) {
+    alert('Failed to register for push notifications! ' + e.error);
+}
+
+function subscribe_news(e) {
+		alert(Alloy.Globals.device_os+','+Alloy.Globals.device_token);
+		
+		Cloud.PushNotifications.subscribeToken({
+		channel : 'alert',
+		device_token : Alloy.Globals.device_token,
+		type : Alloy.Globals.device_os
+	}, function(e) {
+
+		if (e.success) {
+			alert('sub_success');
+			//Alloy.Globals.getMenuData();
+			//Ti.App.Properties.setBool('isSubscribeToPush', true);
+			//Ti.App.Properties.setString('device_token', deviceToken);
+		} else {
+			//Alloy.Globals.getMenuData();
+			alert('Error:' + ((e.error && e.message) || JSON.stringify(e)));
+		}
+	});
+}
+
+
 var menu_json;
 var news_current_section;
 
@@ -290,10 +330,10 @@ function render_news_section(e) {
 	
 	
 	//begin_ga
-	var ga_eid = "jc3id_"+d_json.title;
-	var ga_etype = "jc3typ_section";
-	var ga_esection = "jc3sect_"+d_json.title;
-	var ga_title = "jc3tit_"+d_json.title;
+	var ga_eid = "jc4id_"+d_json.title;
+	var ga_etype = "jc4typ_section";
+	var ga_esection = "jc4sect_"+d_json.title;
+	var ga_title = "jc4tit_"+d_json.title;
 
 	Alloy.Globals.ga_track.trackScreen({
   		screenName: ga_title,   
@@ -349,6 +389,7 @@ function render_news_section(e) {
 			r_link: d_link,
 		});
 		
+		/*
 		if (d_img != "") {
 			e_img = $.UI.create('ImageView',{  
 				image: d_img,
@@ -356,7 +397,7 @@ function render_news_section(e) {
 			});
 			e_row.add(e_img);
 		}
-		
+		*/
 		e_label = $.UI.create('Label',{  
 			text: d_title,
 			classes: ['news_title'],   

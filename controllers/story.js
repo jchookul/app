@@ -1,7 +1,7 @@
 
 var args = arguments[0] || {};
 var url = args.story_url;
-
+var news_data = {};
 $.win_story.open();
 
 var e_data = {"data":{"url":url}};
@@ -33,11 +33,12 @@ function render_story(e) {
 	
 	var d_json = JSON.parse(xhr_response);
 	
-	var ga_eid = "jc3id_"+d_json.id;
-	var ga_etype = "jc3typ_story";
-	var ga_esection = "jc3sect_"+d_json.category[0];
-	var ga_title = "jc3tit_"+d_json.title;
+	var ga_eid = "jc4id_"+d_json.id;
+	var ga_etype = "jc4typ_story";
+	var ga_esection = "jc4sect_"+d_json.category[0];
+	var ga_title = "jc4tit_"+d_json.title;
 	
+	news_data.title = ga_title;
 
 	Alloy.Globals.ga_track.trackScreen({
   		screenName: ga_title,   
@@ -48,7 +49,7 @@ function render_story(e) {
   		}
 	});	
 	
-	alert(ga_eid+","+ga_etype+","+ga_esection+","+ga_title);
+	alert(news_data.title);
 	
 }
 
@@ -56,51 +57,51 @@ function render_story(e) {
 function clk_img1(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc3_img",   // required
-  		action: "jc3_vimg1", // required
-  		label: "jc3_img1_name",
+  		category: "jc4_img",   // required
+  		action: "jc4_vimg1", // required
+  		label: news_data.title,
   		value: 1
 	});
 	
-	alert("clk_img1");	
+	alert("clk_img1_"+news_data.title);	
 }
 
 function clk_img2(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc3_img",   // required
-  		action: "jc3_vimg2", // required
-  		label: "jc3_img2_name",
+  		category: "jc4_img",   // required
+  		action: "jc4_vimg2", // required
+  		label: news_data.title,
   		value: 1
 	});
 	
-	alert("clk_img2");	
+	alert("clk_img2"+news_data.title);	
 }
 
 function clk_fb(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc3_social",   // required
-  		action: "jc3_fb", // required
-  		label: "jc3_stitle",
+  		category: "jc4_social",   // required
+  		action: "jc4_fb", // required
+  		label: news_data.title,
   		value: 1
 	});
 	
 	
-	alert("clk_fb");	
+	alert("clk_fb_"+news_data.title);	
 }
 
 function clk_tt(e) {
 	
 	Alloy.Globals.ga_track.trackEvent({
-  		category: "jc3_social",   // required
-  		action: "jc3_tt", // required
-  		label: "jc3_stitle",
+  		category: "jc4_social",   // required
+  		action: "jc4_tt", // required
+  		label: news_data.title,
   		value: 1
 	});
 	
 	
-	alert("clk_tt");	
+	alert("clk_tt_"+news_data.title);	
 }
 
 function story_close(e) {
